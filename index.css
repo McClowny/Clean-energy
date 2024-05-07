@@ -22,14 +22,15 @@ label {
   }
 
 .checkbox-container {
-    border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: flex-start;
 }
 
-.checkbox-container div input {
-    
+.checkbox-container div {
+    width: 25%;
+    margin-left: 0;
+    margin-right: 25%;
 }

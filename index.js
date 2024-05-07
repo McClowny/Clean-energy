@@ -16,10 +16,15 @@ const householdEnergy = [
         id:document.getElementById("energy3"),
         value:document.getElementById("energy3").value
     },
-// Power Grid //
+// Wind Turbine //
     {
         id:document.getElementById("energy4"),
         value:document.getElementById("energy4").value
+    },
+// Power Grid //
+    {
+        id:document.getElementById("energy5"),
+        value:document.getElementById("energy5").value
     }
 ]
 
