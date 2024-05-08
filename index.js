@@ -1,6 +1,6 @@
 const testSelect = document.getElementById("testselect");
 
-let transportSelector = document.getElementById("select-transport");
+let transportSelect = document.getElementById("select-transport");
 
 const householdEnergy = [
     // Fossil Fuels //
@@ -34,11 +34,18 @@ const householdEnergy = [
         isChecked:document.getElementById("energy5").checked
     }
 ]
+const Selector = {
+    Foot:[20,24,12],
+    Bike:[14,63,28],
+    Car:[74,28,30],
+    "Electric Car":[14,18,73],
+    Bus:[53,28,72],
+    Train:[43,91,3]
+}
 
-
-transportSelector.onclick = setValue;
+transportSelect.onclick = setValue;
 
 function setValue() {
-    const name = transportSelector.value
-    testSelect.innerText = name.slice(0,1).toUpperCase() + name.slice(1,Infinity);
+    const name = transportSelect.value
+    testSelect.innerText = name;
 }
