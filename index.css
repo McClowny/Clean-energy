@@ -39,17 +39,33 @@ label {
     background-image:url("https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/uk/advisor/wp-content/uploads/2021/09/wind-unsplash.jpg");
 }
 
-.ruler-container :nth-of-type(1) {
+.red, .red div {
     border: 1px solid red;
     position: relative;
 }
-.ruler-container :nth-of-type(2) {
+.green, .green div {
     border: 1px solid green;
     position: relative;
 }
-.ruler-container :nth-of-type(3) {
+.blue, .blue div{
     border: 1px solid blue;
     position: relative;
+}
+
+.red .percentage-bar {
+    --percentage: 40%;
+    background-color: red;
+    width: var(--percentage)
+}
+.green .percentage-bar {
+    --percentage: 40%;
+    background-color: green;
+    width: var(--percentage)
+}
+.blue .percentage-bar {
+    --percentage: 40%;
+    background-color: blue;
+    width: var(--percentage)
 }
 
 .ruler-box {
@@ -64,14 +80,16 @@ label {
 }
 
 .percentage-bar:nth-of-type(1) {
-    --percentage: 40%;
-    background-color: red;
     height: 3em;
-    width: var(--percentage)
 }
+<<<<<<< HEAD
+
+=======
 .percentage-bar:nth-of-type(2) {
     --percentage: 40%;
     background-color: green;
     height: 3em;
     width: var(--percentage)
 }
+
+>>>>>>> 648f35250066969efa8989745e26f7f9e8bb762f
