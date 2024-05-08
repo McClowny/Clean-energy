@@ -35,6 +35,10 @@ label {
     margin-right: 25%;
 }
 
+:root {
+    background-image:url("https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/uk/advisor/wp-content/uploads/2021/09/wind-unsplash.jpg");
+}
+
 .ruler-container :nth-of-type(1) {
     border: 1px solid red;
     position: relative;
