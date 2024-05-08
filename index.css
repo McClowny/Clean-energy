@@ -76,17 +76,4 @@ label {
     margin: 1em auto;
 }
 
-.percentage-bar:nth-of-type(1) {
-    height: 3em;
-}
-<<<<<<< HEAD
 
-=======
-.percentage-bar:nth-of-type(2) {
-    --percentage: 40%;
-    background-color: green;
-    height: 3em;
-    width: var(--percentage)
-}
-
->>>>>>> 648f35250066969efa8989745e26f7f9e8bb762f
