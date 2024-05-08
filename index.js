@@ -50,7 +50,7 @@ transportSelect.onclick = setValue;
 
 function setValue() {
     const valuePool = Selector[transportSelect.value];
-    redBar.style.width = valuePool[1] + "%";
-    greenBar.style.width = valuePool[2] + "%";
-    blueBar.style.width = valuePool[3] + "%";
+    redBar.style.width = valuePool[0] + "%";
+    greenBar.style.width = valuePool[1] + "%";
+    blueBar.style.width = valuePool[2] + "%";
 }

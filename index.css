@@ -76,4 +76,6 @@ label {
     margin: 1em auto;
 }
 
-
+.percentage-bar {
+    height: 100%;
+}
