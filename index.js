@@ -3,31 +3,31 @@ const testSelect = document.getElementById("testselect");
 let transportSelector = document.getElementById("select-transport");
 
 const householdEnergy = [
-// Fossil Fuels //
+    // Fossil Fuels //
     {
         id:document.getElementById("energy1"),
         value:document.getElementById("energy1").value,
         isChecked:document.getElementById("energy1").checked
     },
-// Solar Panels //
+    // Solar Panels //
     {
         id:document.getElementById("energy2"),
         value:document.getElementById("energy2").value,
         isChecked:document.getElementById("energy2").checked
     },
-// Water Wheel //
+    // Water Wheel //
     {
         id:document.getElementById("energy3"),
         value:document.getElementById("energy3").value,
         isChecked:document.getElementById("energy3").checked
     },
-// Wind Turbine //
+    // Wind Turbine //
     {
         id:document.getElementById("energy4"),
         value:document.getElementById("energy4").value,
         isChecked:document.getElementById("energy4").checked
     },
-// Power Grid //
+    // Power Grid //
     {
         id:document.getElementById("energy5"),
         value:document.getElementById("energy5").value,
