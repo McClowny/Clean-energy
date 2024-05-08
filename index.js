@@ -30,4 +30,8 @@ const householdEnergy = [
     }
 ]
 
-textSelect.innerText = transportSelector.value;
+textSelect.onclick = test;
+
+function test() {
+    textSelect.innerText = transportSelector.value;
+}
