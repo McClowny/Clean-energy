@@ -1,5 +1,7 @@
 const testSelect = document.getElementById("testselect");
-const transportSelector = document.getElementById("select-transport");
+
+let transportSelector = document.getElementById("select-transport");
+
 const householdEnergy = [
 // Fossil Fuels //
     {
