@@ -35,8 +35,10 @@ const householdEnergy = [
     }
 ]
 
-textSelect.onclick = test;
 
-function test() {
-    textSelect.innerText = transportSelector.value;
+transportSelector.onclick = setValue;
+
+function setValue() {
+    const name = transportSelector.value
+    testSelect.innerText = name.slice(0,1).toUpperCase() + name.slice(1,Infinity);
 }
