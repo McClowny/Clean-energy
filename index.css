@@ -53,19 +53,16 @@ label {
 }
 
 .red .percentage-bar {
-    --percentage: 40%;
     background-color: red;
-    width: var(--percentage)
+    width: 0
 }
 .green .percentage-bar {
-    --percentage: 40%;
     background-color: green;
-    width: var(--percentage)
+    width: 0
 }
 .blue .percentage-bar {
-    --percentage: 40%;
     background-color: blue;
-    width: var(--percentage)
+    width: 0
 }
 
 .ruler-box {

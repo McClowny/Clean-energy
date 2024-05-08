@@ -1,4 +1,7 @@
 const testSelect = document.getElementById("testselect");
+const redBar = document.querySelector(".red .percentage-bar");
+const greenBar = document.querySelector(".green .percentage-bar");
+const blueBar = document.querySelector(".blue .percentage-bar");
 
 let transportSelect = document.getElementById("select-transport");
 
@@ -46,6 +49,8 @@ const Selector = {
 transportSelect.onclick = setValue;
 
 function setValue() {
-    const name = transportSelect.value
-    testSelect.innerText = name;
+    const valuePool = Selector[transportSelect.value];
+    redBar.style.width = valuePool[1] + "%";
+    greenBar.style.width = valuePool[2] + "%";
+    blueBar.style.width = valuePool[3] + "%";
 }
