@@ -37,6 +37,7 @@ label {
 
 :root {
     background-image:url("https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/uk/advisor/wp-content/uploads/2021/09/wind-unsplash.jpg");
+    display: flex;
 }
 
 .red, .red div {
