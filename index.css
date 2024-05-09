@@ -67,27 +67,33 @@ label {
 
 .emissions .percentage-bar {
     background-color: lightcoral;
-    width: 0
+    width: 0;
+    z-index: 1;
 }
 .costs .percentage-bar {
     background-color: limegreen;
-    width: 0
+    width: 0;
+    z-index: 1;
 }
 .time .percentage-bar {
     background-color: lightblue;
-    width: 0
+    width: 0;
+    z-index: 1;
 }
 .emissions .percentage-bar div {
     background-color: red;
-    width: 0
+    width: 0;
+    z-index: 2;
 }
 .costs .percentage-bar div {
     background-color: green;
-    width: 0
+    width: 0;
+    z-index: 2;
 }
 .time .percentage-bar div {
-    background-color: blue;
-    width: 0
+    background-color: black;
+    width: 0;
+    z-index: 2;
 }
 
 .ruler-box {
@@ -106,6 +112,7 @@ label {
     margin: .5em auto;
     background-color: gray;
 }
+
 
 .percentage-bar {
     height: 100%;

@@ -6,7 +6,7 @@ const emissionPostBar = document.querySelector(".emissions .percentage-bar div")
 const costPostBar = document.querySelector(".costs .percentage-bar div");
 const timePostBar = document.querySelector(".time .percentage-bar div");
 const transportSelect = document.getElementById("select-transport");
-const changeTransportSelect = document.getElementById('change-transport')
+const changeTransportSelect = document.getElementById("change-transport");
 
 const householdEnergy = [
     // Turn off unecessary lights //
@@ -41,9 +41,13 @@ transportSelect.onclick = setValue;
 
 function setValue() {
     const valuePool = Selector[transportSelect.value];
-    emissionBar.style.width = valuePool[0] + "%";
-    costBar.style.width = valuePool[1] + "%";
-    timeBar.style.width = valuePool[2] + "%";
+    const valuePoolPost = Selector[changeTransportSelect.value];
+    emissionBar.style.width = valuePool[0] + 20 + "%";
+    costBar.style.width = valuePool[1] + 20 + "%";
+    timeBar.style.width = valuePool[2] + 20 + "%";
+    emissionPostBar.style.width = valuePoolPost[0] + 20 + "%";
+    costPostBar.style.width = valuePoolPost[1] + 20 + "%";
+    timePostBar.style.width = valuePoolPost[2] + 20 + "%";
 }
 
 changeTransportSelect.onclick = checkSelector;
