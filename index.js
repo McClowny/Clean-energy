@@ -2,6 +2,9 @@ const testSelect = document.getElementById("testselect");
 const emissionBar = document.querySelector(".emissions .percentage-bar");
 const costBar = document.querySelector(".costs .percentage-bar");
 const timeBar = document.querySelector(".time .percentage-bar");
+const emissionPostBar = document.querySelector(".emissions .percentage-bar div");
+const costPostBar = document.querySelector(".costs .percentage-bar div");
+const timePostBar = document.querySelector(".time .percentage-bar div");
 const transportSelect = document.getElementById("select-transport");
 const changeTransportSelect = document.getElementById('change-transport')
 
@@ -46,7 +49,7 @@ function setValue() {
 changeTransportSelect.onclick = checkSelector;
 
 function checkSelector() {
-    if (transportSelect.value.localCompare(changetransportSelect.value) = 0) {
+    if (Selector[transportSelect.value] = Selector[changeTransportSelect]) {
     document.querySelector("#foreground").style.backgroundColor = "blue";
     } else {
     document.querySelector("#foreground").style.backgroundColor = "red";

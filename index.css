@@ -66,14 +66,26 @@ label {
 }
 
 .emissions .percentage-bar {
-    background-color: red;
+    background-color: lightcoral;
     width: 0
 }
 .costs .percentage-bar {
-    background-color: green;
+    background-color: limegreen;
     width: 0
 }
 .time .percentage-bar {
+    background-color: lightblue;
+    width: 0
+}
+.emissions .percentage-bar div {
+    background-color: red;
+    width: 0
+}
+.costs .percentage-bar div {
+    background-color: green;
+    width: 0
+}
+.time .percentage-bar div {
     background-color: blue;
     width: 0
 }
@@ -97,6 +109,10 @@ label {
 
 .percentage-bar {
     height: 100%;
+}
+
+.percentage-bar div {
+    border: none;
 }
 
 image {
