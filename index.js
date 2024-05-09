@@ -1,7 +1,7 @@
 const testSelect = document.getElementById("testselect");
-const redBar = document.querySelector(".emissions .percentage-bar");
-const greenBar = document.querySelector(".costs .percentage-bar");
-const blueBar = document.querySelector(".time .percentage-bar");
+const emissionBar = document.querySelector(".emissions .percentage-bar");
+const costBar = document.querySelector(".costs .percentage-bar");
+const timeBar = document.querySelector(".time .percentage-bar");
 const transportSelect = document.getElementById("select-transport");
 const changeTransportSelect = document.getElementById('change-transport')
 
@@ -22,7 +22,7 @@ const householdEnergy = [
     {
         id:document.getElementById("energy3"),
         isChecked:document.getElementById("energy3").checked,
-        value: [checkSelector, checkSelector, checkSelector]
+        value: [0,0,0]
     }
 ]
 const Selector = {
@@ -38,8 +38,17 @@ transportSelect.onclick = setValue;
 
 function setValue() {
     const valuePool = Selector[transportSelect.value];
-    redBar.style.width = valuePool[0] + "%";
-    greenBar.style.width = valuePool[1] + "%";
-    blueBar.style.width = valuePool[2] + "%";
+    emissionBar.style.width = valuePool[0] + "%";
+    costBar.style.width = valuePool[1] + "%";
+    timeBar.style.width = valuePool[2] + "%";
 }
 
+changeTransportSelect.onclick = checkSelector;
+
+function checkSelector() {
+    if (transportSelect.value.localCompare(changetransportSelect.value) = 0) {
+    document.querySelector("#foreground").style.backgroundColor = "blue";
+    } else {
+    document.querySelector("#foreground").style.backgroundColor = "red";
+    }
+}
