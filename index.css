@@ -4,10 +4,9 @@
 }
 
 section {
-    width: 90%;
+    width: 95%;
     background-color: red;
-    padding: 1em auto;
-    margin: 0 auto;
+    margin: 1em auto;
 }
 
 @font-face {
@@ -15,8 +14,8 @@ section {
     src: url(RadioCanadafont.ttf);
 }
 
-.header {
-    color: #FF0000;
+.main-header {
+    color: black;
     font-size: 20px;
     font-weight: bold;
     font-family: RadioCanada;
@@ -42,10 +41,15 @@ label {
 }
 
 .checkbox-container div {
-    width: 25%;
+    width: 50%;
     margin-left: 0;
     margin-right: 25%;
+    margin-top: .5em;
 }
+.checkbox-container:last-of-type {
+    margin-bottom: 2em;
+}
+
 
 .ruler-box, .ruler-box div {
     border: 1px solid black;
@@ -69,6 +73,9 @@ label {
     width: 100%;
     height: 3.5em;
     background-color: yellow;
+}
+
+.ruler-container :first-of-type {
 }
 
 .ruler-bar {

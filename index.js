@@ -41,9 +41,6 @@ const Selector = {
     Foot:[20,24,12],
     Bike:[14,63,28],
     Car:[74,28,30],
-    "Electric Car":[14,18,73],
-    Bus:[53,28,72],
-    Train:[43,91,3]
 }
 
 transportSelect.onclick = setValue;
