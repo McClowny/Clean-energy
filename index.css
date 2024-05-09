@@ -1,7 +1,10 @@
 :root {
-    background-image: url("https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/uk/advisor/wp-content/uploads/2021/09/wind-unsplash.jpg");
-    background-size: 200%;
     --foreground-color: #dcdcdf;
+}
+
+body {
+    background-image: url("https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/uk/advisor/wp-content/uploads/2021/09/wind-unsplash.jpg");
+    background-size: 100%;
 }
 
 * {
@@ -11,7 +14,6 @@
 
 section {
     width: 95%;
-    background-color: var(--foreground-color);
     margin: 1em auto;
 }
 
@@ -101,4 +103,14 @@ image {
     height: 100%;
     width: 100%;
     display: inline;
+}
+
+#foreground {
+    background-color: var(--foreground-color);
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 95%;
+    padding: 0 auto;
+    opacity: 75%;
 }
