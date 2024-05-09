@@ -1,5 +1,13 @@
 * {
     position: relative;
+    box-sizing: border-box;
+}
+
+section {
+    width: 90%;
+    background-color: red;
+    padding: 1em auto;
+    margin: 0 auto;
 }
 
 @font-face {
@@ -39,20 +47,8 @@ label {
     margin-right: 25%;
 }
 
-.ruler-container {
-top: 10em;
-}
-
-.red, .red div {
-    border: 1px solid red;
-    position: relative;
-}
-.green, .green div {
-    border: 1px solid green;
-    position: relative;
-}
-.blue, .blue div{
-    border: 1px solid blue;
+.ruler-box, .ruler-box div {
+    border: 1px solid black;
     position: relative;
 }
 
@@ -71,13 +67,15 @@ top: 10em;
 
 .ruler-box {
     width: 100%;
-    height: 5em;
+    height: 3.5em;
+    background-color: yellow;
 }
 
 .ruler-bar {
     width: 95%;
-    height: 3em;
-    margin: 1em auto;
+    height: 1em;
+    margin: .5em auto;
+    background-color: gray;
 }
 
 .percentage-bar {
@@ -89,10 +87,6 @@ image {
     height: 100%;
     width: 100%;
     display: inline;
-}
-
-form {
-    position: absolute;
 }
 
 :root {
