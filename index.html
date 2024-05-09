@@ -27,47 +27,40 @@
                         <option value="Train">Train</option>
                     </select>
                 </div>
-                <label for="household" class="household-label">What powers your house?</label>
+                <label for="household" class="household-label">What would you like to do?</label>
                 <div name="household" class="checkbox-container">
                     <div>
-                        <label for="fossil-fuels">
+                        <label for="option1">
                         <input type="checkbox" 
-                        name="fossil-fuels" 
+                        name="option1" 
                         id="energy1" 
-                        value="fossil-fuels">
-                        Fossil Fuels</label>
+                        value="option1">
+                        Turn off unecessary lights</label>
                     </div>
                     <div>
-                        <label for="solar-panels">
+                        <label for="option2">
                         <input type="checkbox" 
-                        name="solar-panels" 
+                        name="option2" 
                         id="energy2" 
-                        value="solar-panels">
-                        Solar Panels</label>
+                        value="option2">
+                        Hook up solar panels</label>
                     </div>
                     <div>
-                        <label for="water-wheel">
+                        <label for="option3">
                         <input type="checkbox" 
-                        name="water-wheel" 
+                        name="option3" 
                         id="energy3" 
-                        value="water-wheel">
-                        Water Wheel</label>
-                    </div>
-                    <div>
-                        <label for="wind-turbine">
-                        <input type="checkbox" 
-                        name="wind-turbine" 
-                        id="energy4" 
-                        value="wind-turbine">
-                        Wind Turbine</label>
-                    </div>
-                    <div>
-                        <label for="power-grid">
-                        <input type="checkbox" 
-                        name="power-grid" 
-                        id="energy5" 
-                        value="power-grid">
-                        Power Grid</label>
+                        value="option3">
+                        Change your transportation: 
+                        <select name="transport" id="select-transport-change">
+                            <option disabled selected class="select">Select one</option>
+                            <option value="Foot">Foot</option>
+                            <option value="Bike">Bike</option>
+                            <option value="Car">Car (Gasoline)</option>
+                            <option value="Electric Car">Car (Electric)</option>
+                            <option value="Bus">Bus</option>
+                            <option value="Train">Train</option>
+                        </select></label>
                     </div>
                 </div>
             </form>
