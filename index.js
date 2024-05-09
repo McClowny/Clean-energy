@@ -2,36 +2,36 @@ const testSelect = document.getElementById("testselect");
 const redBar = document.querySelector(".emissions .percentage-bar");
 const greenBar = document.querySelector(".costs .percentage-bar");
 const blueBar = document.querySelector(".time .percentage-bar");
-
-let transportSelect = document.getElementById("select-transport");
+const transportSelect = document.getElementById("select-transport");
+const changeTransportSelect = document.getElementById('change-transport')
 
 const householdEnergy = [
     // Turn off unecessary lights //
     {
         id:document.getElementById("energy1"),
-        value:document.getElementById("energy1").value,
-        isChecked:document.getElementById("energy1").checked
+        isChecked:document.getElementById("energy1").checked,
+        value: [-5,-10,0]
     },
     // Hook up solar panels //
     {
         id:document.getElementById("energy2"),
-        value:document.getElementById("energy2").value,
-        isChecked:document.getElementById("energy2").checked
+        isChecked:document.getElementById("energy2").checked,
+        value: [-20,30,10]
     },
     // Change your transportation //
     {
         id:document.getElementById("energy3"),
-        value:document.getElementById("energy3").value,
-        isChecked:document.getElementById("energy3").checked
+        isChecked:document.getElementById("energy3").checked,
+        value: [checkSelector, checkSelector, checkSelector]
     }
 ]
 const Selector = {
-    Foot:[20,24,12],
-    Bike:[14,63,28],
-    Car:[74,28,30],
-    "Electric Car":[14,18,73],
-    Bus:[53,28,72],
-    Train:[43,91,3]
+    Foot:[0,0,80],
+    Bike:[0,5,65],
+    Car:[60,65,25],
+    "Electric Car":[30,75,25],
+    Bus:[10,20,40],
+    Train:[10,20,40]
 }
 
 transportSelect.onclick = setValue;
@@ -42,3 +42,4 @@ function setValue() {
     greenBar.style.width = valuePool[1] + "%";
     blueBar.style.width = valuePool[2] + "%";
 }
+
