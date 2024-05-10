@@ -80,18 +80,18 @@ label {
     width: 0;
     z-index: 1;
 }
-.emissions .percentage-bar div {
+.emissions .post-percentage-bar {
     background-color: red;
     width: 0;
     z-index: 2;
 }
-.costs .percentage-bar div {
+.costs .post-percentage-bar {
     background-color: green;
     width: 0;
     z-index: 2;
 }
-.time .percentage-bar div {
-    background-color: black;
+.time .post-percentage-bar{
+    background-color: blue;
     width: 0;
     z-index: 2;
 }
