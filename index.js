@@ -7,24 +7,23 @@ const costPostBar = document.querySelector(".costs .post-percentage-bar");
 const timePostBar = document.querySelector(".time .post-percentage-bar");
 const transportSelect = document.getElementById("select-transport");
 const changeTransportSelect = document.getElementById("change-transport");
+const warning = document.querySelector("#warning");
+const warningPhrase = document.querySelector("#warning p");
 
 const householdEnergy = [
     // Turn off unecessary lights //
     {
         id:document.getElementById("energy1"),
-        isChecked:document.getElementById("energy1").checked,
         value: [-5,-10,0]
     },
     // Hook up solar panels //
     {
         id:document.getElementById("energy2"),
-        isChecked:document.getElementById("energy2").checked,
         value: [-20,30,10]
     },
     // Change your transportation //
     {
         id:document.getElementById("energy3"),
-        isChecked:document.getElementById("energy3").checked,
         value: [0,0,0]
     }
 ]
@@ -37,8 +36,7 @@ const selector = {
     Train:[10,20,40]
 }
 
-
-
+changeTransportSelect.onclick = checkSelector;
 transportSelect.onclick = setValue;
 
 function setValue() {
@@ -52,13 +50,18 @@ function setValue() {
     timePostBar.style.width = postValuePool[2] + 20 + "%";
 }
 
-changeTransportSelect.onclick = checkSelector;
-
 function checkSelector() {
-    const int = transportSelect.value.localeCompare(changeTransportSelect.value);
-    if (int) {
-    document.querySelector("#foreground").style.backgroundColor = "blue";
-    } else {
-    document.querySelector("#foreground").style.backgroundColor = "red";
+    const elmnt1 = transportSelect.value;
+    const elmnt2 = changeTransportSelect.value;
+    if (householdEnergy[2]["id"].checked) {
+        if (!elmnt1.localeCompare(elmnt2)) {
+            warning.style.opacity = "100%";
+            warningPhrase.innerText = "You picked the same for both dropdowns. You don't need to enable this option!";
+        } else if (selector[elmnt1][0]>=selector[elmnt2][0]) {
+            warning.style.opacity = "0%"
+        } else {
+            warning.style.opacity = "100%";
+            warningPhrase.innerText = "You picked an option worse for the environment. Pick something else!";
+        }
     }
 }
