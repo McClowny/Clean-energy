@@ -154,6 +154,7 @@ image {
     top: 6em;
     display: flex;
     justify-content: center;
+    opacity: 0%;
 }
 
 #warning p {

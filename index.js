@@ -9,6 +9,7 @@ const transportSelect = document.getElementById("select-transport");
 const changeTransportSelect = document.getElementById("change-transport");
 const warning = document.querySelector("#warning");
 const warningPhrase = document.querySelector("#warning p");
+const calculateButton = document.getElementById("calculate");
 
 const householdEnergy = [
     // Turn off unecessary lights //
@@ -36,8 +37,7 @@ const selector = {
     Train:[10,20,40]
 }
 
-changeTransportSelect.onclick = checkSelector;
-transportSelect.onclick = setValue;
+calculateButton.onclick = checkSelector;
 
 function setValue() {
     const valuePool = selector[transportSelect.value];
@@ -58,10 +58,14 @@ function checkSelector() {
             warning.style.opacity = "100%";
             warningPhrase.innerText = "You picked the same for both dropdowns. You don't need to enable this option!";
         } else if (selector[elmnt1][0]>=selector[elmnt2][0]) {
-            warning.style.opacity = "0%"
+            warning.style.opacity = "0%";
+            setValue;
         } else {
             warning.style.opacity = "100%";
             warningPhrase.innerText = "You picked an option worse for the environment. Pick something else!";
         }
+    } else {
+        warning.style.opacity = "0%";
+        setValue;
     }
 }
