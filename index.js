@@ -29,6 +29,7 @@ const householdEnergy = [
     }
 ]
 const selector = {
+    // Options List //
     Foot:[0,0,80],
     Bike:[0,5,65],
     Car:[60,65,25],
@@ -36,30 +37,57 @@ const selector = {
     Bus:[10,20,40],
     Train:[10,20,40]
 }
+let checkboxValues = [
+    // Turn off unecessary lights //
+    {
+        value: [0,0,0]
+    },
+    // Hook up solar panels //
+    {
+        value: [0,0,0]
+    }
+]
 
 let isCheckboxSelectorEnabled = 0;
 
-transportSelect.onclick = setValue(selector[transportSelect.value],0,0);
 calculateButton.onclick = checkSelector;
+
+function checkCheckboxes(object) {
+    if (householdEnergy[object]["id"].clicked) {
+        checkboxValues[object]["value"] = householdEnergy[object]["value"];
+    } else {
+        checkboxValues[object]["value"] = [0,0,0];
+    }
+}
 
 function setValue(elmnt1, elmnt2, int) {
     const valuePool = elmnt1;
     const postValuePool = elmnt2;
-    if (Boolean(int = 0)) {
+    const value1 = checkboxValues[0]["value"];
+    const value2 = checkboxValues[1]["value"];
+    if (int = 0) {
+        emissionBar.style.width = valuePool[0] + 20 + "%";
+        costBar.style.width = valuePool[1] + 20 + "%";
+        timeBar.style.width = valuePool[2] + 20 + "%";
+        emissionPostBar.style.width = "0%";
+        costPostBar.style.width = "0%";
+        timePostBar.style.width = "0%";
+        console.log("Checking");
+    } else if (int = 1) {
+        emissionBar.style.width = valuePool[0] + value1[0] + value2[0] + 20 + "%";
+        costBar.style.width = valuePool[1] + value1[1] + value2[1] + 20 + "%";
+        timeBar.style.width = valuePool[2] + value1[2] + value2[2] + 20 + "%";
+        emissionPostBar.style.width = "0%";
+        costPostBar.style.width = "0%";
+        timePostBar.style.width = "0%";
+        console.log("Checking");
+    } else {
         emissionBar.style.width = valuePool[0] + 20 + "%";
         costBar.style.width = valuePool[1] + 20 + "%";
         timeBar.style.width = valuePool[2] + 20 + "%";
         emissionPostBar.style.width = postValuePool[0] + 20 + "%";
         costPostBar.style.width = postValuePool[1] + 20 + "%";
         timePostBar.style.width = postValuePool[2] + 20 + "%";
-        console.log("Checking");
-    } else {
-    emissionBar.style.width = valuePool[0] + 20 + "%";
-    costBar.style.width = valuePool[1] + 20 + "%";
-    timeBar.style.width = valuePool[2] + 20 + "%";
-    emissionPostBar.style.width = postValuePool[0] + 20 + "%";
-    costPostBar.style.width = postValuePool[1] + 20 + "%";
-    timePostBar.style.width = postValuePool[2] + 20 + "%";
     }
 }
 
@@ -72,13 +100,13 @@ function checkSelector() {
             warningPhrase.innerText = "You picked the same for both dropdowns. You don't need to enable this option!";
         } else if (selector[elmnt1][0]>=selector[elmnt2][0]) {
             warning.style.opacity = "0%";
-            setValue(selector[elmnt1],selector[elmnt2],1);
+            setValue(selector[elmnt1],selector[elmnt2],2);
         } else {
             warning.style.opacity = "100%";
             warningPhrase.innerText = "You picked an option worse for the environment. Pick something else!";
         }
     } else {
         warning.style.opacity = "0%";
-        setValue(selector[elmnt1],selector[elmnt2],2);
+        setValue(selector[elmnt1],selector[elmnt2],1);
     }
 }
