@@ -37,6 +37,8 @@ const selector = {
     Train:[10,20,40]
 }
 
+let isCheckboxSelectorEnabled = 0;
+
 calculateButton.onclick = checkSelector;
 
 function setValue() {
