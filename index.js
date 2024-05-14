@@ -93,9 +93,9 @@ function setValue(elmnt1, elmnt2, int) {
         emissionBar.style.width = clamp(valuePool[0] + value1[0] + value2[0],0,100) + "%";
         costBar.style.width = clamp(valuePool[1] + value1[1] + value2[1],0,100) + "%";
         timeBar.style.width = clamp(valuePool[2] + value1[2] + value2[2],0,100) + "%";
-        emissionPostBar.style.width = clamp(postValuePoolvaluePool[0] + value1[0] + value2[0],0,100) + "%";
-        costPostBar.style.width = clamp(postValuePoolvaluePool[1] + value1[1] + value2[1],0,100) + "%";
-        timePostBar.style.width = clamp(postValuePoolvaluePool[2] + value1[2] + value2[2],0,100) + "%";
+        emissionPostBar.style.width = clamp(postValuePool[0] + value1[0] + value2[0],0,100) + "%";
+        costPostBar.style.width = clamp(postValuePool[1] + value1[1] + value2[1],0,100) + "%";
+        timePostBar.style.width = clamp(postValuePool[2] + value1[2] + value2[2],0,100) + "%";
     }
 }
 
