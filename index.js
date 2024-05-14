@@ -47,15 +47,15 @@ calculateButton.onclick = checkSelector;
 function checkCheckboxes(object) {
     if (object = 0) {
         if (householdEnergy[object]["id"].clicked) {
-            return householdEnergy[object]["value"];
+            value1 =  householdEnergy[object]["value"];
         } else {
-            return [0,0,0];
+            value1 = [0,0,0];
         }
     } else if (object = 1) {
         if (householdEnergy[object]["id"].clicked) {
-            return householdEnergy[object]["value"];
+            value2 = householdEnergy[object]["value"];
         } else {
-            return [0,0,0];
+            value2 = [0,0,0];
         }
     } else {
         console.log("Check your variables");
@@ -65,17 +65,17 @@ function checkCheckboxes(object) {
 function setValue(elmnt1, elmnt2, int) {
     const valuePool = elmnt1;
     const postValuePool = elmnt2;
-    value1 = checkCheckboxes(0);
-    value2 = checkCheckboxes(1);
-    if (int = 0) {
+    checkCheckboxes(0);
+    checkCheckboxes(1);
+    if (int == 0) {
         emissionBar.style.width = valuePool[0] + "%";
         costBar.style.width = valuePool[1] + "%";
         timeBar.style.width = valuePool[2] + "%";
         emissionPostBar.style.width = "0%";
         costPostBar.style.width = "0%";
         timePostBar.style.width = "0%";
-        console.log("Checking");
-    } else if (int = 1) {
+        calculateButton.innerText = "Checking";
+    } else if (int == 1) {
         emissionBar.style.width = valuePool[0] + value1[0] + value2[0] + "%";
         costBar.style.width = valuePool[1] + value1[1] + value2[1] + "%";
         timeBar.style.width = valuePool[2] + value1[2] + value2[2] + "%";
