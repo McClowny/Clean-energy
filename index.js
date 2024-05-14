@@ -82,7 +82,6 @@ function setValue(elmnt1, elmnt2, int) {
         emissionPostBar.style.width = "0%";
         costPostBar.style.width = "0%";
         timePostBar.style.width = "0%";
-        calculateButton.innerText = "Checking";
     } else if (int == 1) {
         emissionBar.style.width = clamp(valuePool[0] + value1[0] + value2[0],0,100) + "%";
         costBar.style.width = clamp(valuePool[1] + value1[1] + value2[1],0,100) + "%";
@@ -90,14 +89,13 @@ function setValue(elmnt1, elmnt2, int) {
         emissionPostBar.style.width = "0%";
         costPostBar.style.width = "0%";
         timePostBar.style.width = "0%";
-        calculateButton.innerText = value1[0];
     } else {
-        emissionBar.style.width = valuePool[0] + "%";
-        costBar.style.width = valuePool[1] + "%";
-        timeBar.style.width = valuePool[2] + "%";
-        emissionPostBar.style.width = postValuePool[0] + "%";
-        costPostBar.style.width = postValuePool[1] + "%";
-        timePostBar.style.width = postValuePool[2] + "%";
+        emissionBar.style.width = clamp(valuePool[0] + value1[0] + value2[0],0,100) + "%";
+        costBar.style.width = clamp(valuePool[1] + value1[1] + value2[1],0,100) + "%";
+        timeBar.style.width = clamp(valuePool[2] + value1[2] + value2[2],0,100) + "%";
+        emissionPostBar.style.width = clamp(postValuePoolvaluePool[0] + value1[0] + value2[0],0,100) + "%";
+        costPostBar.style.width = clamp(postValuePoolvaluePool[1] + value1[1] + value2[1],0,100) + "%";
+        timePostBar.style.width = clamp(postValuePoolvaluePool[2] + value1[2] + value2[2],0,100) + "%";
     }
 }
 
