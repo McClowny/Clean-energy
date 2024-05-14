@@ -39,6 +39,8 @@ const selector = {
 }
 
 let isCheckboxSelectorEnabled = 0;
+let value1 = [0,0,0];
+let value2 = [0,0,0];
 
 calculateButton.onclick = checkSelector;
 
@@ -63,8 +65,8 @@ function checkCheckboxes(object) {
 function setValue(elmnt1, elmnt2, int) {
     const valuePool = elmnt1;
     const postValuePool = elmnt2;
-    let value1 = checkCheckboxes(0);
-    let value2 = checkCheckboxes(1);
+    value1 = checkCheckboxes(0);
+    value2 = checkCheckboxes(1);
     if (int = 0) {
         emissionBar.style.width = valuePool[0] + "%";
         costBar.style.width = valuePool[1] + "%";
@@ -80,7 +82,7 @@ function setValue(elmnt1, elmnt2, int) {
         emissionPostBar.style.width = "0%";
         costPostBar.style.width = "0%";
         timePostBar.style.width = "0%";
-        console.log(value1);
+        calculateButton.innerText = value1[0];
     } else {
         emissionBar.style.width = valuePool[0] + "%";
         costBar.style.width = valuePool[1] + "%";
