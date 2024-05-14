@@ -41,21 +41,31 @@ const selector = {
 let isCheckboxSelectorEnabled = 0;
 let value1 = [0,0,0];
 let value2 = [0,0,0];
+let flip1 = 0;
+let flip2 = 0;
 
 calculateButton.onclick = checkSelector;
 
 function checkCheckboxes(object) {
     if (object = 0) {
-        if (householdEnergy[object]["id"].clicked) {
+        if (flip1 == 0) {
             value1 =  householdEnergy[object]["value"];
+            flip1 = 1;
+            calculateButton.innerText = "yes";
         } else {
             value1 = [0,0,0];
+            flip1 = 0;
+            calculateButton.innerText = "no";
         }
     } else if (object = 1) {
-        if (householdEnergy[object]["id"].clicked) {
+        if (flip2 == 0) {
             value2 = householdEnergy[object]["value"];
+            flip2 = 1;
+            calculateButton.innerText = "yes";
         } else {
             value2 = [0,0,0];
+            flip2 = 0;
+            calculateButton.innerText = "no";
         }
     } else {
         console.log("Check your variables");
@@ -65,8 +75,6 @@ function checkCheckboxes(object) {
 function setValue(elmnt1, elmnt2, int) {
     const valuePool = elmnt1;
     const postValuePool = elmnt2;
-    checkCheckboxes(0);
-    checkCheckboxes(1);
     if (int == 0) {
         emissionBar.style.width = valuePool[0] + "%";
         costBar.style.width = valuePool[1] + "%";
@@ -76,9 +84,9 @@ function setValue(elmnt1, elmnt2, int) {
         timePostBar.style.width = "0%";
         calculateButton.innerText = "Checking";
     } else if (int == 1) {
-        emissionBar.style.width = valuePool[0] + value1[0] + value2[0] + "%";
-        costBar.style.width = valuePool[1] + value1[1] + value2[1] + "%";
-        timeBar.style.width = valuePool[2] + value1[2] + value2[2] + "%";
+        emissionBar.style.width = Lodash_clamp(valuePool[0] + value1[0] + value2[0],0,100) + "%";
+        costBar.style.width = Lodash_clamp(valuePool[1] + value1[1] + value2[1],0,100) + "%";
+        timeBar.style.width = Lodash_clamp(valuePool[2] + value1[2] + value2[2],0,100) + "%";
         emissionPostBar.style.width = "0%";
         costPostBar.style.width = "0%";
         timePostBar.style.width = "0%";
