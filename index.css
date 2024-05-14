@@ -112,6 +112,12 @@ label {
     )
 }
 
+.post-percentage-bar {
+    height: 100%;
+    top: -100%;
+    z-index: 1;
+    border: none !important;
+}
 
 .ruler-bar {
     width: 95%;
@@ -123,10 +129,7 @@ label {
 
 .percentage-bar {
     height: 100%;
-}
-
-.percentage-bar div {
-    border: none;
+    border: none !important;
 }
 
 image {

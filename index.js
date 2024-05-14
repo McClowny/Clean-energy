@@ -39,17 +39,25 @@ const selector = {
 
 let isCheckboxSelectorEnabled = 0;
 
+transportSelect.onclick = setValue(selector[transportSelect.value],0,0);
 calculateButton.onclick = checkSelector;
 
-function setValue(elmnt1, elmnt2) {
+function setValue(elmnt1, elmnt2, integer) {
     const valuePool = elmnt1;
     const postValuePool = elmnt2;
+    const int = integer;
+    if (int = 0) {
+        emissionBar.style.width = valuePool[0] + 20 + "%";
+        costBar.style.width = valuePool[1] + 20 + "%";
+        timeBar.style.width = valuePool[2] + 20 + "%";
+    } else {
     emissionBar.style.width = valuePool[0] + 20 + "%";
     costBar.style.width = valuePool[1] + 20 + "%";
     timeBar.style.width = valuePool[2] + 20 + "%";
     emissionPostBar.style.width = postValuePool[0] + 20 + "%";
     costPostBar.style.width = postValuePool[1] + 20 + "%";
     timePostBar.style.width = postValuePool[2] + 20 + "%";
+    }
 }
 
 function checkSelector() {
@@ -61,13 +69,13 @@ function checkSelector() {
             warningPhrase.innerText = "You picked the same for both dropdowns. You don't need to enable this option!";
         } else if (selector[elmnt1][0]>=selector[elmnt2][0]) {
             warning.style.opacity = "0%";
-            setValue(selector[elmnt1],selector[elmnt2]);
+            setValue(selector[elmnt1],selector[elmnt2],1);
         } else {
             warning.style.opacity = "100%";
             warningPhrase.innerText = "You picked an option worse for the environment. Pick something else!";
         }
     } else {
         warning.style.opacity = "0%";
-        setValue(selector[elmnt1],selector[elmnt2]);
+        setValue(selector[elmnt1],selector[elmnt2],2);
     }
 }
