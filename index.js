@@ -77,26 +77,26 @@ function setValue(elmnt1, elmnt2, int) {
     const postValuePool = elmnt2;
     let width = window.innerWidth;
     if (int == 0) {
-        barSlide(emissionBar, emissionBar.style.width/(.95*width), (valuePool[0]/100)*(.95*width));
-        barSlide(emissionPostBar, 0, valuePool[0]);
-        barSlide(costBar, 0, valuePool[1]);
-        barSlide(costPostBar, 0, valuePool[1]);
-        barSlide(timeBar, 0, valuePool[2]);
-        barSlide(timePostBar, 0, valuePool[2]);
+        barSlide(emissionBar, valuePool[0]);
+        barSlide(emissionPostBar, valuePool[0]);
+        barSlide(costBar, valuePool[1]);
+        barSlide(costPostBar, valuePool[1]);
+        barSlide(timeBar, valuePool[2]);
+        barSlide(timePostBar, valuePool[2]);
     } else if (int == 1) {
-        emissionBar.style.width = clamp(valuePool[0] + value1[0] + value2[0],0,100) + "%";
-        costBar.style.width = clamp(valuePool[1] + value1[1] + value2[1],0,100) + "%";
-        timeBar.style.width = clamp(valuePool[2] + value1[2] + value2[2],0,100) + "%";
-        emissionPostBar.style.width = "0%";
-        costPostBar.style.width = "0%";
-        timePostBar.style.width = "0%";
+        barSlide(emissionBar, clamp(valuePool[0] + value1[0] + value2[0],0,100));
+        barSlide(costBar, clamp(valuePool[1] + value1[1] + value2[1],0,100));
+        barSlide(timeBar, clamp(valuePool[2] + value1[2] + value2[2],0,100));
+        barSlide(emissionPostBar, clamp(valuePool[0] + value1[0] + value2[0],0,100));
+        barSlide(costPostBar, clamp(valuePool[1] + value1[1] + value2[1],0,100));
+        barSlide(timePostBar, clamp(valuePool[2] + value1[2] + value2[2],0,100));
     } else {
-        emissionBar.style.width = clamp(valuePool[0] + value1[0] + value2[0],0,100) + "%";
-        costBar.style.width = clamp(valuePool[1] + value1[1] + value2[1],0,100) + "%";
-        timeBar.style.width = clamp(valuePool[2] + value1[2] + value2[2],0,100) + "%";
-        emissionPostBar.style.width = clamp(postValuePool[0] + value1[0] + value2[0],0,100) + "%";
-        costPostBar.style.width = clamp(postValuePool[1] + value1[1] + value2[1],0,100) + "%";
-        timePostBar.style.width = clamp(postValuePool[2] + value1[2] + value2[2],0,100) + "%";
+        barSlide(emissionBar, clamp(valuePool[0] + value1[0] + value2[0],0,100));
+        barSlide(costBar, clamp(valuePool[1] + value1[1] + value2[1],0,100));
+        barSlide(timeBar, clamp(valuePool[2] + value1[2] + value2[2],0,100));
+        barSlide(emissionPostBar, clamp(postValuePool[0] + value1[0] + value2[0],0,100));
+        barSlide(costPostBar, clamp(postValuePool[1] + value1[1] + value2[1],0,100));
+        barSlide(timePostBar, clamp(postValuePool[2] + value1[2] + value2[2],0,100));
     }
 }
 
@@ -130,31 +130,19 @@ function checkSelector() {
     }
 }
 
-function barSlide(elmnt, initial, end) {
+function barSlide(elmnt, end) {
     let id = null;
-    let pos = initial;
+    let pos = 0;
+    let inc = Math.round(end)/100;
     clearInterval(id);
-    if (initial < end) {
-        id = setInterval(frame, 5)
-        function frame() {
-            if (pos >= end) {
-                clearInterval(id);
-            } else {
-                pos ++;
-                elmnt.style.width = pos + "px";
-            }
-        }
-    } else if (initial > end) {
-        id = setInterval(frame, 5)
-        function frame() {
-            if (pos <= end) {
-                clearInterval(id);
-            } else {
-                pos --;
-                elmnt.style.width = pos + "px";
-            }
+    id = setInterval(frame, 5);
+    function frame() {
+        if (Math.round(pos) == Math.round(end)) {
+            clearInterval(id);
+        } else {
+            pos += inc;
+            elmnt.style.width = pos + "%";
+            calculateButton.innerText = pos + ' ' + end;
         }
     }
 }
-
-calculateButton.innerHTML = window.innerWidth;
