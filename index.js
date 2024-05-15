@@ -75,13 +75,14 @@ function checkCheckboxes(object) {
 function setValue(elmnt1, elmnt2, int) {
     const valuePool = elmnt1;
     const postValuePool = elmnt2;
+    let width = window.innerWidth;
     if (int == 0) {
-        emissionBar.style.width = valuePool[0] + "%";
-        costBar.style.width = valuePool[1] + "%";
-        timeBar.style.width = valuePool[2] + "%";
-        emissionPostBar.style.width = "0%";
-        costPostBar.style.width = "0%";
-        timePostBar.style.width = "0%";
+        barSlide(emissionBar, emissionBar.style.width/(.95*width), (valuePool[0]/100)*(.95*width));
+        barSlide(emissionPostBar, 0, valuePool[0]);
+        barSlide(costBar, 0, valuePool[1]);
+        barSlide(costPostBar, 0, valuePool[1]);
+        barSlide(timeBar, 0, valuePool[2]);
+        barSlide(timePostBar, 0, valuePool[2]);
     } else if (int == 1) {
         emissionBar.style.width = clamp(valuePool[0] + value1[0] + value2[0],0,100) + "%";
         costBar.style.width = clamp(valuePool[1] + value1[1] + value2[1],0,100) + "%";
@@ -128,3 +129,32 @@ function checkSelector() {
         setValue(selector[elmnt1],selector[elmnt2],1);
     }
 }
+
+function barSlide(elmnt, initial, end) {
+    let id = null;
+    let pos = initial;
+    clearInterval(id);
+    if (initial < end) {
+        id = setInterval(frame, 5)
+        function frame() {
+            if (pos >= end) {
+                clearInterval(id);
+            } else {
+                pos ++;
+                elmnt.style.width = pos + "px";
+            }
+        }
+    } else if (initial > end) {
+        id = setInterval(frame, 5)
+        function frame() {
+            if (pos <= end) {
+                clearInterval(id);
+            } else {
+                pos --;
+                elmnt.style.width = pos + "px";
+            }
+        }
+    }
+}
+
+calculateButton.innerHTML = window.innerWidth;
