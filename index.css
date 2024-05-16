@@ -7,6 +7,18 @@
     --blue: #5f5fdf;
     --blue-lite: #a2a2df;
     --yellow: #dfdf5f;
+    --gild: linear-gradient(
+        yellow,
+        gold
+    );
+    --dark-gild: linear-gradient(
+        #cfcf00,
+        rgb(215,175,0)
+    );
+    --darker-gild: linear-gradient(
+        #afaf00,
+        rgb(195,155,0)
+    )
 }
 
 body {
@@ -18,6 +30,7 @@ body {
 * {
     position: relative;
     box-sizing: border-box;
+    font-family: "Radio Canadian";
 }
 
 section {
@@ -28,6 +41,10 @@ section {
 @font-face {
     font-family: RadioCanada;
     src: url(RadioCanadafont.ttf);
+}
+
+select {
+    z-index: 3;
 }
 
 .main-header {
@@ -50,10 +67,11 @@ label {
 
 .checkbox-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: flex-start;
+    height: 80px;
 }
 
 .checkbox-container div {
@@ -183,11 +201,8 @@ image {
 }
 
 .gild {
-    background: linear-gradient(
-        yellow,
-        gold
-    );
     accent-color: black;
+    background: var(--gild);
 }
 
 .gild:not(.ruler-box, .ruler-bar, .bar-text):hover {
@@ -197,32 +212,11 @@ image {
     );
 }
 
-.checkmark {
-    position: absolute;
-    top: 4px;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    background: linear-gradient(
-        #cfcf00,
-        rgb(215,175,0)
-    );
-    border: 1px solid rgba(0,0,0,.5);
-}
-
-.cb input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
 .cb {
     display: inline;
     position: relative;
     padding-left: 20px;
-    padding-top: 1px;
+    padding-top: 4px;
     margin-bottom: 0;
     cursor: pointer;
     font-size: 14px;
@@ -232,20 +226,37 @@ image {
     user-select: none;
 }
 
+.cb input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 15;
+    width: 100%;
+    left: -5px;
+    z-index: 2;
+}
+
+.checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background: var(--darker-gild);
+    border: 1px solid rgba(0,0,0,.5);
+}
+
 .cb:hover input ~ .checkmark {
-    background: linear-gradient(
-        yellow,
-        gold
-    );
+    background: var(--dark-gild);
 }
 
 .cb input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background: var(--gild);
 }
 
 .checkmark:after {
     content: "";
-    position: absolute;
+    position: relative;
     display: none;
 }
 
@@ -254,10 +265,10 @@ image {
 }
 
 .cb .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    left: 25%;
+    top: 0;
+    width: 3px;
+    height: 7px;
     border: solid black;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
