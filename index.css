@@ -21,10 +21,35 @@
     )
 }
 
+@font-face {
+    font-family: RadioCanada;
+    src: url(RadioCanadafont.ttf);
+}
+
 body {
     background-image: url("https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/uk/advisor/wp-content/uploads/2021/09/wind-unsplash.jpg");
     background-size: auto;
     background-repeat: no-repeat;
+}
+
+section {
+    width: 95%;
+    margin: 1em auto;
+}
+
+label {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+  
+@keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+}
+
+select {
+    z-index: 3;
 }
 
 * {
@@ -33,37 +58,12 @@ body {
     font-family: "Radio Canadian";
 }
 
-section {
-    width: 95%;
-    margin: 1em auto;
-}
-
-@font-face {
-    font-family: RadioCanada;
-    src: url(RadioCanadafont.ttf);
-}
-
-select {
-    z-index: 3;
-}
-
 .main-header {
     color: black;
     font-size: 20px;
     font-weight: bold;
     font-family: RadioCanada;
 }
-
-label {
-    width: 100px;
-    height: 100px;
-    position: relative;
-  }
-  
-  @keyframes mymove {
-    from {top: 0px;}
-    to {top: 200px;}
-  }
 
 .checkbox-container {
     display: flex;
