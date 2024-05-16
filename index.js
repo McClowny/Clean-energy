@@ -47,7 +47,7 @@ let flip2 = 0;
 calculateButton.onclick = checkSelector;
 
 function checkCheckboxes(object) {
-    if (object == 0) {
+    if (object = 0) {
         if (flip1 == 0) {
             value1 =  householdEnergy[object]["value"];
             flip1 = 1;
@@ -55,7 +55,7 @@ function checkCheckboxes(object) {
             value1 = [0,0,0];
             flip1 = 0;
         }
-    } else if (object == 1) {
+    } else if (object = 1) {
         if (flip2 == 0) {
             value2 = householdEnergy[object]["value"];
             flip2 = 1;
@@ -64,7 +64,7 @@ function checkCheckboxes(object) {
             flip2 = 0;
         }
     } else {
-        calculateButton.innerText = "Error. Cannot Compute.";
+        console.log("Check your variables");
     }
 }
 
@@ -103,26 +103,36 @@ function clamp(n,lower,upper) {
         return upper;
     } else {
         return n;
-    }
+    } 
 }
 
 function checkSelector() {
     const elmnt1 = transportSelect.value;
     const elmnt2 = changeTransportSelect.value;
+    if (elmnt1.localeCompare("Select one")) {
     if (householdEnergy[2]["id"].checked) {
-        if (!elmnt1.localeCompare(elmnt2)) {
-            warning.style.opacity = "100%";
-            warningPhrase.innerText = "You picked the same for both dropdowns. You don't need to enable this option!";
-        } else if (selector[elmnt1][0]>=selector[elmnt2][0]) {
-            warning.style.opacity = "0%";
-            setValue(selector[elmnt1],selector[elmnt2],2);
+        if (`${elmnt2}`.localeCompare("Select one")) {
+            if (!elmnt1.localeCompare(elmnt2)) {
+                fade(warning, 100);
+                warningPhrase.innerText = "You picked the same for both dropdowns. You don't need to enable this option!";
+            } else if (selector[elmnt1][0]>=selector[elmnt2][0]) {
+                warning.style.opacity = "0%";
+                setValue(selector[elmnt1],selector[elmnt2],2);
+            } else {
+                fade(warning, 100);
+                warningPhrase.innerText = "You picked an option worse for the environment. Pick something else!";
+            }
         } else {
-            warning.style.opacity = "100%";
-            warningPhrase.innerText = "You picked an option worse for the environment. Pick something else!";
+            fade(warning, 100);
+            warningPhrase.innerText = "Please select something.";
         }
     } else {
         warning.style.opacity = "0%";
         setValue(selector[elmnt1],selector[elmnt2],1);
+    }
+    } else {
+        fade(warning, 100);
+        warningPhrase.innerText = "Please select something.";
     }
 }
 
@@ -138,6 +148,45 @@ function barSlide(elmnt, end) {
         } else {
             pos += inc;
             elmnt.style.width = pos + "%";
+        }
+    }
+}
+
+let isFadeAlreadyActive = null;
+
+function fade(elmnt, end) {
+    if (end == 100 && !isFadeAlreadyActive) {
+        isFadeAlreadyActive = true;
+        let id = null;
+        let op = 0;
+        clearInterval(id);
+        id = setInterval(frame, 5);
+        function frame() {
+            if (op == 100) {
+                clearInterval(id);
+                id = setInterval(fadeOut,3000)
+                function fadeOut() {
+                    clearInterval(id);
+                    fade(elmnt, 0);
+                }
+            } else {
+                op += 2;
+                elmnt.style.opacity = op + "%";
+            }
+        }
+    } else if (end == 0) {
+        let id = null;
+        let op = 100;
+        clearInterval(id);
+        id = setInterval(frame, 5);
+        function frame() {
+            if (op == 0) {
+                clearInterval(id);
+                isFadeAlreadyActive = null;
+            } else {
+                op -= 2;
+                elmnt.style.opacity = op + "%";
+            }
         }
     }
 }

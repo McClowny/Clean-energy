@@ -11,13 +11,13 @@
         yellow,
         gold
     );
-    --dark-gild: linear-gradient(
-        #cfcf00,
-        rgb(215,175,0)
+    --charcoal-black: linear-gradient(
+        #7d7d7d,
+        #3f3f3f
     );
-    --darker-gild: linear-gradient(
-        #afaf00,
-        rgb(195,155,0)
+    --steel-gray: linear-gradient(
+        #cdcdcd,
+        #9c9c9c
     )
 }
 
@@ -84,7 +84,12 @@ select {
     margin-bottom: 4.5em;
 }
 
-
+.ruler-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: row;
+    align-content: center;
+}
 .ruler-box, .ruler-box div {
     border: 1px solid black;
     position: relative;
@@ -201,7 +206,7 @@ image {
 }
 
 .gild {
-    accent-color: black;
+    accent-color: var(--gild);
     background: var(--gild);
 }
 
@@ -242,12 +247,12 @@ image {
     left: 0;
     height: 15px;
     width: 15px;
-    background: var(--darker-gild);
+    background: var(--charcoal-black);
     border: 1px solid rgba(0,0,0,.5);
 }
 
 .cb:hover input ~ .checkmark {
-    background: var(--dark-gild);
+    background: var(--steel-gray);
 }
 
 .cb input:checked ~ .checkmark {
@@ -274,4 +279,9 @@ image {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+option {
+    background-color: #efefef;
+    color: #3f3f3f;
 }
