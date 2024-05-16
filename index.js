@@ -47,28 +47,24 @@ let flip2 = 0;
 calculateButton.onclick = checkSelector;
 
 function checkCheckboxes(object) {
-    if (object = 0) {
+    if (object == 0) {
         if (flip1 == 0) {
             value1 =  householdEnergy[object]["value"];
             flip1 = 1;
-            calculateButton.innerText = "yes";
         } else {
             value1 = [0,0,0];
             flip1 = 0;
-            calculateButton.innerText = "no";
         }
-    } else if (object = 1) {
+    } else if (object == 1) {
         if (flip2 == 0) {
             value2 = householdEnergy[object]["value"];
             flip2 = 1;
-            calculateButton.innerText = "yes";
         } else {
             value2 = [0,0,0];
             flip2 = 0;
-            calculateButton.innerText = "no";
         }
     } else {
-        console.log("Check your variables");
+        calculateButton.innerText = "Error. Cannot Compute.";
     }
 }
 
@@ -142,7 +138,6 @@ function barSlide(elmnt, end) {
         } else {
             pos += inc;
             elmnt.style.width = pos + "%";
-            calculateButton.innerText = pos + ' ' + end;
         }
     }
 }

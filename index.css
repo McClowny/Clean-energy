@@ -187,4 +187,80 @@ image {
         yellow,
         gold
     );
+    accent-color: black;
+}
+
+.gild:not(.ruler-box, .ruler-bar, .bar-text):hover {
+    background: linear-gradient(
+        #cfcf00,
+        rgb(215,175,0)
+    );
+}
+
+.checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background: linear-gradient(
+        #cfcf00,
+        rgb(215,175,0)
+    );
+    border: 1px solid rgba(0,0,0,.5);
+}
+
+.cb input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.cb {
+    display: inline;
+    position: relative;
+    padding-left: 20px;
+    padding-top: 1px;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cb:hover input ~ .checkmark {
+    background: linear-gradient(
+        yellow,
+        gold
+    );
+}
+
+.cb input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.cb input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.cb .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }

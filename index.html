@@ -18,8 +18,7 @@
             <form>
                 <div id="dropdown-container" class="dropdown-container">
                     <label for="transport">What's your main source of transportation?</label>
-                    <select name="transport" id="select-transport" class="gild"
-                    onclick="setValue(selector[transportSelect.value],selector[changeTransportSelect.value],0)">
+                    <select name="transport" id="select-transport" class="gild">
                         <option disabled selected class="select">Select one</option>
                         <option value="Foot">Foot</option>
                         <option value="Bike">Bike</option>
@@ -32,29 +31,41 @@
                 <label for="household" class="household-label">What would you like to do?</label>
                 <div name="household" class="checkbox-container">
                     <div>
-                        <label for="option1">
+                        <label for="option1"
+                        class="cb">
                         <input type="checkbox" 
                         name="option1" 
                         id="energy1" 
                         value="option1"
+                        class="gild"
                         onclick="checkCheckboxes(0)">
+                        <span
+                        class="checkmark"></span>
                         Turn off unecessary lights</label>
                     </div>
                     <div>
-                        <label for="option2">
+                        <label for="option2"
+                        class="cb">
                         <input type="checkbox" 
                         name="option2" 
                         id="energy2" 
                         value="option2"
+                        class="gild"
                         onclick="checkCheckboxes(1)">
+                        <span
+                        class="checkmark"></span>
                         Hook up solar panels</label>
                     </div>
                     <div>
-                        <label for="option3">
+                        <label for="option3"
+                        class="cb">
                         <input type="checkbox" 
                         name="option3" 
                         id="energy3" 
-                        value="option3">
+                        value="option3"
+                        class="gild">
+                        <span
+                        class="checkmark"></span>
                         Change your transportation: 
                         <select id="change-transport" class="gild">
                             <option disabled selected class="select">Select one</option>
