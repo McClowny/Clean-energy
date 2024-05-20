@@ -141,13 +141,17 @@ function barSlide(elmnt, end) {
     let pos = 0;
     let inc = Math.round(end)/100;
     clearInterval(id);
-    id = setInterval(frame, 5);
-    function frame() {
+    if (end==0) {
+        elmnt.style.width = "0%";
+    } else {
+        id = setInterval(frame, 5);
+        function frame() {
         if (Math.round(pos) == Math.round(end)) {
             clearInterval(id);
         } else {
             pos += inc;
             elmnt.style.width = pos + "%";
+        }
         }
     }
 }
