@@ -246,8 +246,10 @@ option {
     width: 50%;
 }
 
-.bottom {
-    margin-bottom: 10em;
+.sub-divide {
+    margin-bottom: .75em .5em;
+    width: 25%;
+    opacity: 50%;
 }
 
 /* CSS code section below is inspired by w3schools.com Custom Checkmarks code. */
