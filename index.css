@@ -250,7 +250,7 @@ option {
     margin-bottom: 10em;
 }
 
-/* CSS code is altered form of w3schools.com Custom Checkmarks code */
+/* CSS code section below is inspired by w3schools.com Custom Checkmarks code. */
 .cb input {
     position: absolute;
     opacity: 0;
