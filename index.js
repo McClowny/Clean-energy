@@ -146,7 +146,7 @@ function barSlide(elmnt, end) {
     } else {
         id = setInterval(frame, 5);
         function frame() {
-        if (Math.round(pos) == Math.round(end)) {
+        if (Math.round(pos) == Math.round(end)) { 
             clearInterval(id);
         } else {
             pos += inc;
